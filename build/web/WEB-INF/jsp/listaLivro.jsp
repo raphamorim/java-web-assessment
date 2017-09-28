@@ -49,7 +49,7 @@
                                 <td>${livro.autor.nome}</td>
                                 <td>${livro.editora.nome}</td>
                                 <td>
-                                    <a href="#" class="btn btn-info" >editar</a>
+                                    <a href="verLivro.htm?id=${livro.id}" class="btn btn-info" >editar</a>
                                     <a href="excluirLivro.htm?id=${livro.id}" class="btn btn-danger">deletar</a>
                                 </td>
                             </tr>

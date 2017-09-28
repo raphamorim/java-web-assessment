@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
- * @author DesenvolvedorJava
+ * @author Hugo Raphael Vianna Amorim
  */
 @Controller("/primeiro")
 public class PrimeiroControle {
@@ -38,41 +38,18 @@ public class PrimeiroControle {
         req.setAttribute("listaLivro",  lista);
         return "listaLivro";
     }
-    
-//    @RequestMapping(value="/preparaCadastrarPessoa.htm", method = RequestMethod.GET)
-//    public String preparaCadastrarPessoa(@ModelAttribute("pessoa") Pessoa pessoa)
-//    {
-//        return "cadastroPessoa";
-//    }
-//    
-//    @RequestMapping(value="/cadastrarPessoa.htm", method = RequestMethod.POST)
-//    public String cadastrarPessoa(@ModelAttribute("pessoa") Pessoa pessoa)
-//    {
-//        PessoaDao dao = new PessoaDao();
-//        dao.cadastrarPessoa(pessoa);
-//        
-//        return "index";
-//    }
-//    
+      
     @RequestMapping(value="/excluirLivro.htm", method = RequestMethod.GET)
     public String excluirPessoa(HttpServletRequest req,
     @RequestParam("id") String id){
 
         LivrariaDao dao = new LivrariaDao();
         dao.excluirLivro(Integer.parseInt(id));
-         List<Livro> lista = dao.listarLivro();
-         req.setAttribute("listaLivro", lista);
+        List<Livro> lista = dao.listarLivro();
+        req.setAttribute("listaLivro", lista);
 
         return "listaLivro";
     }
-    
-//     @RequestMapping(value="/listarPessoa.htm", method = RequestMethod.GET)
-//    public String listarPessoa(HttpServletRequest req){
-//        PessoaDao dao = new PessoaDao();
-//         List<Pessoa> lista = dao.listarPessoas();
-//         req.setAttribute("listaPessoas", lista);
-//        return "listaPessoa";
-//    }
     
     @RequestMapping(value="/preparaCadastrarAutor.htm", method = RequestMethod.GET)
     public String preparaCadastrarAutor(@ModelAttribute("autor") Autor autor){
@@ -98,6 +75,18 @@ public class PrimeiroControle {
         return "index";
     }
     
+    @RequestMapping(value = "/verLivro.htm", method = RequestMethod.GET)
+    public String verLivro(HttpServletRequest req, @RequestParam("id") String id){
+
+        LivrariaDao dao = new LivrariaDao();
+        Livro meuLivro = dao.verLivro(Integer.parseInt(id));
+        req.setAttribute("livro", meuLivro);
+        
+        req.setAttribute("listaAutor", dao.listarAutor());
+        req.setAttribute("listaEditora", dao.listarEditora());
+        
+        return "verLivro";
+    }
     
     @RequestMapping(value = "/preparaCadastroLivro.htm", method = RequestMethod.GET)
     public String preparaCadastroLivro(@ModelAttribute("livro") Livro livro, HttpServletRequest req){
@@ -117,7 +106,14 @@ public class PrimeiroControle {
         LivrariaDao dao = new LivrariaDao();
         
         dao.cadastrarLivro(livro);
+        return "index";
+    }
+    
+    @RequestMapping(value = "/atualizarLivro.htm", method = RequestMethod.POST)
+    public String atualizarLivro(@ModelAttribute("livro") Livro livro){
+        LivrariaDao dao = new LivrariaDao();
         
+        dao.atualizarLivro(livro);
         return "index";
     }
     

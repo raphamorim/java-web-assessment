@@ -24,7 +24,7 @@
         <hr>
         <c:if test="${livro != null}">
             <div class="alert alert-success" role="alert">
-                <c:out value="O livro ${pessoa.nome} foi cadastrado com sucesso!"/>
+                <c:out value="O livro ${pessoa.nome} foi cadastrado/atualizado com sucesso!"/>
             </div>
         </c:if>
         <div class="row justify-content-md-center">

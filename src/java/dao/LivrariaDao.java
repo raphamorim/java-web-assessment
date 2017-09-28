@@ -88,6 +88,18 @@ public class LivrariaDao
         return listaLivro;
     }
     
+    public Livro verLivro(int idlivro){
+        EntityManagerFactory factory = 
+                Persistence.createEntityManagerFactory("PersistSpring");
+        
+        EntityManager em = factory.createEntityManager();
+        em.getTransaction().begin();
+        Livro livro = em.find(Livro.class, idlivro);
+        em.close();
+        factory.close();
+        return livro;
+    }
+    
     public void excluirLivro(int idlivro){
         EntityManagerFactory factory = 
                 Persistence.createEntityManagerFactory("PersistSpring");
@@ -98,6 +110,20 @@ public class LivrariaDao
         em.remove(livro);
         em.getTransaction().commit();
         em.close();
+        factory.close();
+    }
+    
+    
+    public void atualizarLivro(Livro livro){
+        EntityManagerFactory factory = 
+                Persistence.createEntityManagerFactory("PersistSpring");
+        
+        EntityManager em = factory.createEntityManager();
+        em.getTransaction().begin();
+        em.merge(livro);
+        em.getTransaction().commit();
+        em.close();
+        factory.close();
     }
     
 }
