@@ -35,6 +35,46 @@
                 <a class="btn btn-primary" href="preparaCadastroLivro.htm">Cadastrar Livro</a>
             </div>
         </div>
-                    
-    </body>
+                
+        <div class="container-fluid" style="margin-top: 1rem; padding: 0 3rem;">
+            <div class="row justify-content-md-center">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Nome</th>
+                        <th>Ano</th>
+                        <th>Autor</th>
+                        <th>Editora</th>
+                        <th>Ações</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Vidas Secas</td>
+                        <td>1984</td>
+                        <td>Graciliano Ramos</td>
+                        <td>BVC</td>
+                        <td>
+                            <a href="#" class="btn btn-info" >editar</a>
+                            <a href="#" class="btn btn-danger">deletar</a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob Eddlwin</td>
+                        <td>Coding above Java</td>
+                        <td>1999</td>
+                        <td>O'relly</td>
+                        <td>
+                            <a href="#" class="btn btn-info" >editar</a>
+                            <a href="#" class="btn btn-danger">deletar</a>
+                        </td>
+                      </tr>
+                    </tbody>
+                </table>
+            </body>
+        </div>
+    </div>
 </html>
