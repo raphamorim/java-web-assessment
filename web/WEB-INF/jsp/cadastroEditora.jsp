@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <title>Cadastro Editora - Assesment</title>
+        <title>Cadastro Editora - Assessment</title>
         
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -28,7 +28,7 @@
             <s:form action="cadastrarEditora.htm" method="POST" modelAttribute="editora">            
                 <div class="form-group">
                     <label for="email">Nome da Editora:</label>
-                    <td><s:input path="nome" class="form-control" required="true"/></td>
+                    <td><s:input path="nome" placeholder="Digite o nome da editora" class="form-control" required="true"/></td>
                 </div>
                 <input type="submit" class="btn btn-primary" value="Enviar"/>
                 <input type="reset" class="btn btn-secondary" value="Limpar"/> 

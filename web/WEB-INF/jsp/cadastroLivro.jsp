@@ -6,44 +6,55 @@
 <%@taglib prefix="s" uri="http://www.springframework.org/tags/form"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cadastro Livro</title>
+        <title>Cadastro Livro - Assessment</title>
+        
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
     </head>
     <body>
-        <h1>Cadastro Livro</h1>
-        <hr/>
+        <div class="container-fluid" style="padding-top: 1rem">
+            <div class="row justify-content-md-center">
+                <h2>Cadastro de Livro</h2>
+            </div>
+        </div>
+        <hr>       
+        <div class="container-fluid">
+        <div class="row justify-content-md-center">
         <s:form action="cadastrarLivro.htm"
                 method="POST" modelAttribute="livro" >
-            <table>
+                <div class="form-group">
+                    <label for="titulo">Título do Livro: </label>
+                    <td><s:input path="titulo" placeholder="Digite o Título" class="form-control" required="true"/></td>
+                </div>
                 
-                <tr>
-                    <td>Titulo:</td>
-                    <td><s:input path="titulo"/></td>                
-                </tr>
+                <div class="form-group">
+                    <label for="ano">Ano do Livro: </label>
+                    <td><s:input path="ano" value="2017" class="form-control" required="true"/></td>
+                </div>
                 
-                <tr>
-                    <td>Ano:</td>
-                    <td><s:input path="ano"/></td>                
-                </tr>
-
-                <tr>
-                    <td>Autor:</td>
-                    <td> <s:select path="autor.id" 
+                <div class="form-group">
+                    <label for="autor">Autor do Livro: </label>
+                    <td><s:select class="custom-select" path="autor.id" 
                               itemValue="id" itemLabel="nome" 
-                            items="${listaAutor}" /> </td>                
-                </tr>
+                            items="${listaAutor}" /></td>
+                </div>
                 
-                <tr>
-                    <td>Editora</td>
-                    <td><s:select path="editora.id" 
+                <div class="form-group">
+                    <label for="autor">Editora do Livro: </label>
+                    <td><s:select class="custom-select" path="editora.id" 
                               itemValue="id" itemLabel="nome" 
-                            items="${listaEditora}" /> </td>                
-                </tr>
+                            items="${listaEditora}" /></td>
+                </div>
 
-            </table>
-                <input type="submit" value="Enviar" />
+            <input type="submit" class="btn btn-primary" value="Enviar"/>
         </s:form>
+        </div>
+        </div>
     </body>
 </html>
