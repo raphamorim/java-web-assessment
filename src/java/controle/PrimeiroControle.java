@@ -6,13 +6,11 @@
 package controle;
 
 import dao.LivrariaDao;
-import dao.PessoaDao;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import modelo.Autor;
 import modelo.Editora;
 import modelo.Livro;
-import modelo.Pessoa;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,40 +30,40 @@ public class PrimeiroControle {
         return "index";
     }
     
-    @RequestMapping(value="/preparaCadastrarPessoa.htm", method = RequestMethod.GET)
-    public String preparaCadastrarPessoa(@ModelAttribute("pessoa") Pessoa pessoa)
-    {
-        return "cadastroPessoa";
-    }
+//    @RequestMapping(value="/preparaCadastrarPessoa.htm", method = RequestMethod.GET)
+//    public String preparaCadastrarPessoa(@ModelAttribute("pessoa") Pessoa pessoa)
+//    {
+//        return "cadastroPessoa";
+//    }
+//    
+//    @RequestMapping(value="/cadastrarPessoa.htm", method = RequestMethod.POST)
+//    public String cadastrarPessoa(@ModelAttribute("pessoa") Pessoa pessoa)
+//    {
+//        PessoaDao dao = new PessoaDao();
+//        dao.cadastrarPessoa(pessoa);
+//        
+//        return "index";
+//    }
+//    
+//    @RequestMapping(value="/excluirPessoa.htm", method = RequestMethod.GET)
+//    public String excluirPessoa(HttpServletRequest req,
+//    @RequestParam("id") String id){
+//        
+//        PessoaDao dao = new PessoaDao();
+//        dao.excluirPessoa(Integer.parseInt(id));
+//         List<Pessoa> lista = dao.listarPessoas();
+//         req.setAttribute("listaPessoas", lista);
+//        
+//        return "listaPessoa";
+//    }
     
-    @RequestMapping(value="/cadastrarPessoa.htm", method = RequestMethod.POST)
-    public String cadastrarPessoa(@ModelAttribute("pessoa") Pessoa pessoa)
-    {
-        PessoaDao dao = new PessoaDao();
-        dao.cadastrarPessoa(pessoa);
-        
-        return "index";
-    }
-    
-    @RequestMapping(value="/excluirPessoa.htm", method = RequestMethod.GET)
-    public String excluirPessoa(HttpServletRequest req,
-    @RequestParam("id") String id){
-        
-        PessoaDao dao = new PessoaDao();
-        dao.excluirPessoa(Integer.parseInt(id));
-         List<Pessoa> lista = dao.listarPessoas();
-         req.setAttribute("listaPessoas", lista);
-        
-        return "listaPessoa";
-    }
-    
-     @RequestMapping(value="/listarPessoa.htm", method = RequestMethod.GET)
-    public String listarPessoa(HttpServletRequest req){
-        PessoaDao dao = new PessoaDao();
-         List<Pessoa> lista = dao.listarPessoas();
-         req.setAttribute("listaPessoas", lista);
-        return "listaPessoa";
-    }
+//     @RequestMapping(value="/listarPessoa.htm", method = RequestMethod.GET)
+//    public String listarPessoa(HttpServletRequest req){
+//        PessoaDao dao = new PessoaDao();
+//         List<Pessoa> lista = dao.listarPessoas();
+//         req.setAttribute("listaPessoas", lista);
+//        return "listaPessoa";
+//    }
     
     @RequestMapping(value="/preparaCadastrarAutor.htm", method = RequestMethod.GET)
     public String preparaCadastrarAutor(@ModelAttribute("autor") Autor autor){
