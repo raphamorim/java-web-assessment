@@ -22,59 +22,18 @@
             </div>
         </div>
         <hr>
-        <c:if test="${pessoa!= null}">
+        <c:if test="${livro != null}">
             <div class="alert alert-success" role="alert">
                 <c:out value="O livro ${pessoa.nome} foi cadastrado com sucesso!"/>
             </div>
         </c:if>
         <div class="row justify-content-md-center">
             <div class="btn-group mr-2" role="group" aria-label="First group">
-                <a class="btn btn-secondary active" href="./">Listar Livros</a> 
+                <a class="btn btn-secondary active" href="listaLivro.htm">Listar Livros</a> 
                 <a class="btn btn-primary" href="preparaCadastrarAutor.htm">Cadastrar Autor</a> 
                 <a class="btn btn-primary" href="preparaCadastrarEditora.htm">Cadastrar Editora</a>
                 <a class="btn btn-primary" href="preparaCadastroLivro.htm">Cadastrar Livro</a>
             </div>
         </div>
-                
-        <div class="container-fluid" style="margin-top: 1rem; padding: 0 3rem;">
-            <div class="row justify-content-md-center">
-                <table class="table">
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>Nome</th>
-                        <th>Ano</th>
-                        <th>Autor</th>
-                        <th>Editora</th>
-                        <th>Ações</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Vidas Secas</td>
-                        <td>1984</td>
-                        <td>Graciliano Ramos</td>
-                        <td>BVC</td>
-                        <td>
-                            <a href="#" class="btn btn-info" >editar</a>
-                            <a href="#" class="btn btn-danger">deletar</a>
-                        </td>
-                      </tr>
-                      <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob Eddlwin</td>
-                        <td>Coding above Java</td>
-                        <td>1999</td>
-                        <td>O'relly</td>
-                        <td>
-                            <a href="#" class="btn btn-info" >editar</a>
-                            <a href="#" class="btn btn-danger">deletar</a>
-                        </td>
-                      </tr>
-                    </tbody>
-                </table>
-            </body>
-        </div>
-    </div>
+    </body>
 </html>

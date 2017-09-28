@@ -30,6 +30,15 @@ public class PrimeiroControle {
         return "index";
     }
     
+    @RequestMapping(value="/listaLivro.htm", method = RequestMethod.GET)
+    public String chamarIndex(@ModelAttribute("livro") Livro livro, HttpServletRequest req)
+    {
+        LivrariaDao dao = new LivrariaDao();
+        List<Livro> lista = dao.listarLivro();
+        req.setAttribute("listaLivro",  lista);
+        return "listaLivro";
+    }
+    
 //    @RequestMapping(value="/preparaCadastrarPessoa.htm", method = RequestMethod.GET)
 //    public String preparaCadastrarPessoa(@ModelAttribute("pessoa") Pessoa pessoa)
 //    {

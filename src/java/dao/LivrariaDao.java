@@ -5,6 +5,7 @@
  */
 package dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -53,6 +54,17 @@ public class LivrariaDao
         return listaEditora;
     }
     
+    public void cadastrarLivro(Livro livro){
+        EntityManagerFactory factory = 
+                Persistence.createEntityManagerFactory("PersistSpring");
+        EntityManager em = factory.createEntityManager();
+        em.getTransaction().begin();
+        em.persist(livro);
+        em.getTransaction().commit();
+        em.close();
+        factory.close();
+    }
+    
     public List<Autor> listarAutor(){
                EntityManagerFactory factory = 
                 Persistence.createEntityManagerFactory("PersistSpring");
@@ -64,15 +76,16 @@ public class LivrariaDao
         return listaAutor;
     }
     
-    public void cadastrarLivro(Livro livro){
+    public List<Livro> listarLivro(){
         EntityManagerFactory factory = 
                 Persistence.createEntityManagerFactory("PersistSpring");
+        
         EntityManager em = factory.createEntityManager();
         em.getTransaction().begin();
-        em.persist(livro);
-        em.getTransaction().commit();
+        List<Livro> listaLivro = em.createQuery("select l from Livro as l").getResultList();
         em.close();
         factory.close();
+        return listaLivro;
     }
     
 }
