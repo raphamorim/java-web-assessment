@@ -88,4 +88,16 @@ public class LivrariaDao
         return listaLivro;
     }
     
+    public void excluirLivro(int idlivro){
+        EntityManagerFactory factory = 
+                Persistence.createEntityManagerFactory("PersistSpring");
+        
+        EntityManager em = factory.createEntityManager();
+        em.getTransaction().begin();
+        Livro livro = em.find(Livro.class, idlivro);
+        em.remove(livro);
+        em.getTransaction().commit();
+        em.close();
+    }
+    
 }

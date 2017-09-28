@@ -54,17 +54,17 @@ public class PrimeiroControle {
 //        return "index";
 //    }
 //    
-//    @RequestMapping(value="/excluirPessoa.htm", method = RequestMethod.GET)
-//    public String excluirPessoa(HttpServletRequest req,
-//    @RequestParam("id") String id){
-//        
-//        PessoaDao dao = new PessoaDao();
-//        dao.excluirPessoa(Integer.parseInt(id));
-//         List<Pessoa> lista = dao.listarPessoas();
-//         req.setAttribute("listaPessoas", lista);
-//        
-//        return "listaPessoa";
-//    }
+    @RequestMapping(value="/excluirLivro.htm", method = RequestMethod.GET)
+    public String excluirPessoa(HttpServletRequest req,
+    @RequestParam("id") String id){
+
+        LivrariaDao dao = new LivrariaDao();
+        dao.excluirLivro(Integer.parseInt(id));
+         List<Livro> lista = dao.listarLivro();
+         req.setAttribute("listaLivro", lista);
+
+        return "listaLivro";
+    }
     
 //     @RequestMapping(value="/listarPessoa.htm", method = RequestMethod.GET)
 //    public String listarPessoa(HttpServletRequest req){

@@ -18,7 +18,7 @@
     <body>
         <div class="container-fluid" style="margin-top: 1rem;">
             <div class="row justify-content-md-center">
-                <h1>Painel de Livros</h1>
+                <h1>Lista de Livros</h1>
             </div>
             
             <div class="row justify-content-md-center">
@@ -41,16 +41,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <c:forEach items="${listaLivro}" var="livro" >
+                        <c:forEach items="${listaLivro}" var="livro" varStatus="loop" >
                             <tr>
-                                <th scope="row">1</th>
+                                <th scope="row">${loop.index + 1}</th>
                                 <td>${livro.titulo}</td>
                                 <td>${livro.ano}</td>
                                 <td>${livro.autor.nome}</td>
                                 <td>${livro.editora.nome}</td>
                                 <td>
                                     <a href="#" class="btn btn-info" >editar</a>
-                                    <a href="excluirPessoa.htm?id=${livro.id}" class="btn btn-danger">deletar</a>
+                                    <a href="excluirLivro.htm?id=${livro.id}" class="btn btn-danger">deletar</a>
                                 </td>
                             </tr>
                         </c:forEach>
